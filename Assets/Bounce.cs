@@ -8,6 +8,7 @@ public class Bounce : MonoBehaviour {
 
 	public AudioClip[] movementSounds;
 
+
 	bool complete = false;
 
 	void Start () {
@@ -15,7 +16,6 @@ public class Bounce : MonoBehaviour {
 	}
 
 	public void DoBounce(){
-		print ("DoBounce()");
 		if(movementSounds.Length > 0){
 			GetComponent<AudioSource>().clip = movementSounds[Random.Range (0, movementSounds.Length)];
 			GetComponent<AudioSource>().Play ();

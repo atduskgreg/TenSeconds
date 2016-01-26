@@ -16,8 +16,9 @@ public class StartCountdown : MonoBehaviour {
 		JumpToFrame(0);
 		if(Application.loadedLevelName == "MainScene"){
 			JumpToFrame (3);
-			GetComponent<AudioSource>().clip = startSounds[startSounds.Length-1];
-			GetComponent<AudioSource>().Play();
+			print ("play last start sound");
+//			GetComponent<AudioSource>().clip = startSounds[startSounds.Length-1];
+//			GetComponent<AudioSource>().Play();
 			GetComponent<Bounce>().DoBounce ();
 		}
 	}

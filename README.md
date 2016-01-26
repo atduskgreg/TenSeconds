@@ -2,7 +2,7 @@
 
 ### TODO
 
-* Add high score indicator light to main screen menu
+* Play applause sound on returning to start screen if score was a high score
 * Add tutorial link to main screen menu
 * Add credits flip out panel to main screen menu
 * Better jump sound
@@ -13,3 +13,4 @@
 * Make all objects spawn comfortably on screen
 * Animate arrow when jumping
 * Add music
+* Better death indications: sound, on-screen graphics over frozen screen, something
