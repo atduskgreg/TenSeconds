@@ -9,9 +9,8 @@
 * spawn sounds?
 * Make animation for credits flip out panel
 * Make credits still
-* Make animation back
+* Make credits animate back
 * Trigger credits panel from button
-* Line up buttons in start panel
 * Better jump sound
 * Better wipeout pickup sound
 * Better wipeout usage sound

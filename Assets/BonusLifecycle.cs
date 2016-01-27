@@ -225,8 +225,6 @@ public class BonusLifecycle : MonoBehaviour {
 		currentTraps.Remove (trapTriggered);
 		Destroy (trapTriggered, audioSource.clip.length);
 
-//		PlaceTrap();
-
 	}
 
 	Vector3 RandomOnScreenPoint(){
