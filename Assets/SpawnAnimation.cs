@@ -5,21 +5,25 @@ public class SpawnAnimation : MonoBehaviour {
 	public float time = 0.5f;
 	public float startScale = 0.0f;
 
+	public bool growOnStart = true;
 
 	private Vector2 endScale;
-	void Start () {
 
+	void Start () {
 		time += Random.Range(-0.2f, 0.2f);
 		endScale = new Vector2(transform.localScale.x, transform.localScale.y);
 		transform.localScale = new Vector2(startScale, startScale);
-		StartGrow ();
+		if(growOnStart){
+			StartGrow ();
+		}
 	}
 	
 	void Update () {
 	
 	}
 
-	void StartGrow(){
+	public void StartGrow(){
+		print ("StartGrow()");
 		StartCoroutine(GrowTo(time));
 	}
 

@@ -14,8 +14,6 @@ public class Shatter : MonoBehaviour {
 		GetComponent<Collider2D>().enabled = false;
 		GameObject shards = (GameObject)Instantiate(shardParent, new Vector3(transform.position.x , transform.position.y, transform.position.z), Quaternion.identity);
 
-		print (smashDir);
-
 		float aveX = 0.0f;
 		float aveY = 0.0f;
 		int numShards = 0;

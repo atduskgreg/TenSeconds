@@ -43,7 +43,6 @@ public class TutorialClickTarget : MonoBehaviour {
 	public void BeginTime(){
 		if(isTimed){
 			startTime = Time.timeSinceLevelLoad;
-			print(startTime);
 			timeStarted = true;
 		}
 		if(isUseBonusTarget){
@@ -57,6 +56,8 @@ public class TutorialClickTarget : MonoBehaviour {
 		if(ObjectsToAdd.Length > 0){
 			for(int i = 0; i< ObjectsToAdd.Length; i++){
 				ObjectsToAdd[i].SetActive(true);
+				ObjectsToAdd[i].GetComponent<SpawnAnimation>().StartGrow();
+
 				if(ObjectsToAdd[i].GetComponent<ChasePlayerTutorial>()){
 					ObjectsToAdd[i].GetComponent<ChasePlayerTutorial>().Begin();
 					bl.AddTrap(ObjectsToAdd[i]);

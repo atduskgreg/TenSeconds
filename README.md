@@ -5,8 +5,8 @@
 * Add button pressed state
 * Maybe gray background for menu? (animation to and from gray background)
 * Save time of final run for tutorial as last time
-* Add back button from tutorial to main menu
 * Add sounds on button presses
+* spawn sounds?
 * Make animation for credits flip out panel
 * Make credits still
 * Make animation back
