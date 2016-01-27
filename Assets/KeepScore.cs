@@ -32,7 +32,7 @@ public class KeepScore : MonoBehaviour {
 		if(GameOn()){
 			timeUp = false;
 
-			score = Time.timeSinceLevelLoad;
+			score = Time.timeSinceLevelLoad - startTime;
 
 			float t = (RemainingTime())/startingTotal;
 
@@ -87,25 +87,23 @@ public class KeepScore : MonoBehaviour {
 	}
 
 	void EndGame(){
-
-		StoreHighscore();
-
 		GameObject.Find ("player").GetComponent<Rigidbody2D>().isKinematic = true;
-		GameObject.Find ("ScoreCanvas").GetComponent<ShowHighScore>().UpdateScores();
+
+		if(Application.loadedLevelName != "Tutorial1"){
+			StoreHighscore();
+
+			GameObject.Find ("ScoreCanvas").GetComponent<ShowHighScore>().UpdateScores();
+		}
+	
 //		scorePanel.GetComponent<Bounce>().DoBounce();
 		timerWidget.GetComponent<Bounce>().DoBounce();
 
 
-		// TODO:
-		// 
+	
 
 
 		rd.color = Color.black;
-//					Application.LoadLevel(Application.loadedLevel);
 
 
-//		if(Input.GetKeyDown(KeyCode.Space)){
-//			Application.LoadLevel(Application.loadedLevel);
-//		}
 	}
 }

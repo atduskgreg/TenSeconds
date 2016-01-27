@@ -3,7 +3,6 @@ using System.Collections;
 
 public class TutorialClickTarget : MonoBehaviour {
 
-
 	public bool isCollectionTarget = false;
 	public bool isUseBonusTarget = false;
 	public bool isStartClockTarget = false;
@@ -26,7 +25,6 @@ public class TutorialClickTarget : MonoBehaviour {
 	KeepScore score;
 
 	void Start () {
-		print (Time.timeSinceLevelLoad);
 		manager = (ManageTutorial)GameObject.Find("TutorialManager").GetComponent(typeof(ManageTutorial));
 		bl = (BonusLifecycle)GameObject.Find("ObstacleManager").GetComponent(typeof(BonusLifecycle));
 		score = (KeepScore)GameObject.Find("progress_bar").GetComponent(typeof(KeepScore));
@@ -35,8 +33,8 @@ public class TutorialClickTarget : MonoBehaviour {
 			GetComponent<Collider2D>().enabled = false;
 		}
 		if(ObjectsToAdd.Length > 0){
-			print ("ObjectToAdd");
 			for(int i = 0; i< ObjectsToAdd.Length; i++){
+				print (ObjectsToAdd[i]);
 				ObjectsToAdd[i].SetActive(false);
 			}
 		}
@@ -50,15 +48,15 @@ public class TutorialClickTarget : MonoBehaviour {
 		}
 		if(isUseBonusTarget){
 			numStartingBonuses = bl.GetNumWipeouts();
-			print ("numStartingBonuses: " + numStartingBonuses);
 		}
 		if(isStartClockTarget){
-			// here: tell score to ResetTime()
-			// set keeptime to true
+			score.ResetTime();
+			score.keepTime = true;
 		}
 
 		if(ObjectsToAdd.Length > 0){
 			for(int i = 0; i< ObjectsToAdd.Length; i++){
+				print ("obj to add: " +ObjectsToAdd[i] );
 				ObjectsToAdd[i].SetActive(true);
 				if(ObjectsToAdd[i].GetComponent<ChasePlayerTutorial>()){
 					ObjectsToAdd[i].GetComponent<ChasePlayerTutorial>().Begin();
@@ -72,7 +70,6 @@ public class TutorialClickTarget : MonoBehaviour {
 	
 	void Update () {
 		if(isTimed && timeStarted && (Time.timeSinceLevelLoad - startTime >= liveTime)){
-			print ("isTimed");
 			timeStarted = false;
 			manager.Next();
 		}

@@ -2,10 +2,8 @@
 
 ### TODO
 
-
 * Add button pressed state
 * Maybe gray background for tutorial?
-* Redesign tutorial text to match metal ui?
 * Add back button from tutorial to main menu
 * Add sounds on button presses
 * Make animation for credits flip out panel

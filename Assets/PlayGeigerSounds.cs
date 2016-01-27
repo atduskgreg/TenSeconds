@@ -17,10 +17,15 @@ public class PlayGeigerSounds : MonoBehaviour {
 
 
 	}
+
+	public void Mute(){
+		print ("Mute()");
+		audioSource.volume = 0;
+	}
 	
 	void Update () {
 		if(!score.GameOn()){
-			audioSource.volume = 0;
+			Mute();
 		}
 
 		if (!audioSource.isPlaying){
