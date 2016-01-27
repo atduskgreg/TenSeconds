@@ -56,7 +56,6 @@ public class TutorialClickTarget : MonoBehaviour {
 
 		if(ObjectsToAdd.Length > 0){
 			for(int i = 0; i< ObjectsToAdd.Length; i++){
-				print ("obj to add: " +ObjectsToAdd[i] );
 				ObjectsToAdd[i].SetActive(true);
 				if(ObjectsToAdd[i].GetComponent<ChasePlayerTutorial>()){
 					ObjectsToAdd[i].GetComponent<ChasePlayerTutorial>().Begin();
@@ -64,7 +63,10 @@ public class TutorialClickTarget : MonoBehaviour {
 				}
 
 			}
+		}
 
+		if(isStartClockTarget){
+			bl.PlaceBonus();
 		}
 	}
 	
@@ -82,12 +84,10 @@ public class TutorialClickTarget : MonoBehaviour {
 		if(isUseBonusTarget && bl.GetNumWipeouts() < numStartingBonuses && !alreadyCollected){
 			manager.Next();
 			alreadyCollected = true;
-
 		}
 	}
 
 	void OnMouseDown(){
-		print ("OnMouseDown");
 		if(!isCollectionTarget && !isTimed && !isUseBonusTarget){
 			manager.Next();
 		}

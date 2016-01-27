@@ -256,7 +256,7 @@ public class BonusLifecycle : MonoBehaviour {
 		bt.position = new Vector3(bt.position.x, bt.position.y, 0);
 	}
 
-	void PlaceBonus(){
+	public void PlaceBonus(){
 		lastBonusTime = Time.time;
 
 		float x = Random.Range(0, Camera.main.pixelWidth);

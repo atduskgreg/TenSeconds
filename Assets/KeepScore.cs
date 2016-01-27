@@ -95,14 +95,10 @@ public class KeepScore : MonoBehaviour {
 			GameObject.Find ("ScoreCanvas").GetComponent<ShowHighScore>().UpdateScores();
 		}
 	
-//		scorePanel.GetComponent<Bounce>().DoBounce();
 		timerWidget.GetComponent<Bounce>().DoBounce();
 
-
 	
-
-
-		rd.color = Color.black;
+//		rd.color = Color.black;
 
 
 	}

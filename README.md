@@ -20,5 +20,5 @@
 * Animate arrow when jumping
 * Add music
 * Better death indications: sound, on-screen graphics over frozen screen, something
-
+* After Each minute (?) of surviving increase the average speed of th enemies. Use a sprite with a green glow for the faster ones
 * Play applause sound on returning to start screen if score was a high score
