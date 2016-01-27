@@ -25,6 +25,7 @@ public class BonusLifecycle : MonoBehaviour {
 	public AudioClip[] enemyExplodeSounds;
 
 	public int numTrapsForSuperSound = 5;
+	public float spawningEdgeBuffer = 30.0f;
 
 	public AudioSource secondAudioSource;
 
@@ -228,14 +229,18 @@ public class BonusLifecycle : MonoBehaviour {
 
 	}
 
+	Vector3 RandomOnScreenPoint(){
+
+		float x = Random.Range(0, Camera.main.pixelWidth - spawningEdgeBuffer);
+		float y = Random.Range(bottomY, Camera.main.pixelHeight - spawningEdgeBuffer);
+
+		return Camera.main.ScreenToWorldPoint(new Vector3(x,y, 0));
+	}
+
 	void PlaceTrap(){
 		lastBonusTime = Time.time;
 
-		float x = Random.Range(0, Camera.main.pixelWidth);
-		float y = Random.Range(bottomY, Camera.main.pixelHeight);
-		print (y);
-
-		Transform bt = (Transform)Instantiate(trap, Camera.main.ScreenToWorldPoint(new Vector3(x,y, 0)), Quaternion.identity);
+		Transform bt = (Transform)Instantiate(trap, RandomOnScreenPoint(), Quaternion.identity);
 		bt.position = new Vector3(bt.position.x, bt.position.y, 0);
 
 
@@ -248,22 +253,16 @@ public class BonusLifecycle : MonoBehaviour {
 	}
 
 	void PlaceWipeoutBonus(){
-		float x = Random.Range(0, Camera.main.pixelWidth);
-		float y = Random.Range(bottomY, Camera.main.pixelHeight);
-		print (y);
 
-		Transform bt = (Transform)Instantiate(wipeoutBonus, Camera.main.ScreenToWorldPoint(new Vector3(x,y, 0)), Quaternion.identity);
+
+		Transform bt = (Transform)Instantiate(wipeoutBonus, RandomOnScreenPoint(), Quaternion.identity);
 		bt.position = new Vector3(bt.position.x, bt.position.y, 0);
 	}
 
 	public void PlaceBonus(){
 		lastBonusTime = Time.time;
 
-		float x = Random.Range(0, Camera.main.pixelWidth);
-		float y = Random.Range(bottomY, Camera.main.pixelHeight);
-		print (y);
-
-		Transform bt = (Transform)Instantiate(bonus, Camera.main.ScreenToWorldPoint(new Vector3(x,y, 0)), Quaternion.identity);
+		Transform bt = (Transform)Instantiate(bonus, RandomOnScreenPoint(), Quaternion.identity);
 		bt.position = new Vector3(bt.position.x, bt.position.y, 0);
 
 		currentBonuses.Add(bt.gameObject);

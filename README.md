@@ -16,7 +16,6 @@
 * Better wipeout pickup sound
 * Better wipeout usage sound
 * Better wipeout usage animation
-* Make all objects spawn comfortably on screen
 * Animate arrow when jumping
 * Add music
 * Better death indications: sound, on-screen graphics over frozen screen, something
