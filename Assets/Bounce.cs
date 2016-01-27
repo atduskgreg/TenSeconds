@@ -31,8 +31,9 @@ public class Bounce : MonoBehaviour {
 		
 	}
 
-	IEnumerator BounceTo(Vector2 targetPos, float time){
+	public IEnumerator BounceTo(Vector2 targetPos, float time){
 		Vector2 startPos = transform.position;
+		complete = false;
 		for (float t = 0.0f; t < time; t += Time.deltaTime ){
 			float y;
 			if(easeIn){
