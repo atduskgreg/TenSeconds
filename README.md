@@ -3,7 +3,8 @@
 ### TODO
 
 * Add button pressed state
-* Maybe gray background for tutorial?
+* Maybe gray background for menu? (animation to and from gray background)
+* Save time of final run for tutorial as last time
 * Add back button from tutorial to main menu
 * Add sounds on button presses
 * Make animation for credits flip out panel
@@ -15,7 +16,6 @@
 * Better wipeout pickup sound
 * Better wipeout usage sound
 * Better wipeout usage animation
-* Animate in bonuses, enemies, and wipeout bonuses
 * Make all objects spawn comfortably on screen
 * Animate arrow when jumping
 * Add music
