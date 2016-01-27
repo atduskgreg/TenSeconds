@@ -201,7 +201,6 @@ public class BonusLifecycle : MonoBehaviour {
 				currentTraps.RemoveAt(i);
 			}
 	
-
 			Camera.main.GetComponent<Shake>().ApplyShake(1.0f * numTrapsDestroyed);
 	}
 

@@ -16,15 +16,12 @@ public class StartCountdown : MonoBehaviour {
 		JumpToFrame(0);
 		if(Application.loadedLevelName == "MainScene"){
 			JumpToFrame (3);
-			print ("play last start sound");
-//			GetComponent<AudioSource>().clip = startSounds[startSounds.Length-1];
-//			GetComponent<AudioSource>().Play();
 			GetComponent<Bounce>().DoBounce ();
 		}
 	}
 
 	void Update(){
-		if(!begun && GameObject.Find("TimerWidget").GetComponent<Bounce>().isComplete()){
+		if(Application.loadedLevelName != "Tutorial1" && !begun && GameObject.Find("TimerWidget").GetComponent<Bounce>().isComplete()){
 			begun = true;
 			Begin ();
 		}

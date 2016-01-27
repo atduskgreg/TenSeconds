@@ -20,8 +20,10 @@ public class GetHitTutorial : MonoBehaviour {
 		BonusLifecycle bl = (BonusLifecycle)GameObject.Find("ObstacleManager").GetComponent<BonusLifecycle>();
 
 		if(isTrap){
+			GetComponent<Shatter>().StartShatter(collision.gameObject.GetComponent<PushAndPull>().currentVelocity);
 			bl.ApplyPenalty(gameObject);
 		} else if(isWipeoutBonus){
+
 			bl.CollectWipeoutBonus(gameObject);
 		} else{
 			GetComponent<Shatter>().StartShatter(collision.gameObject.GetComponent<PushAndPull>().currentVelocity);

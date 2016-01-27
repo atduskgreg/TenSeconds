@@ -3,9 +3,7 @@
 ### TODO
 
 
-* Apply animations to tutorial transition
 * Add button pressed state
-* Update tutorial to use modern prefabs, have matching background, etc.
 * Maybe gray background for tutorial?
 * Redesign tutorial text to match metal ui?
 * Add back button from tutorial to main menu

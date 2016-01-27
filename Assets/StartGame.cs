@@ -13,7 +13,6 @@ public class StartGame : MonoBehaviour {
 	}
 	
 	public void ClickToStart(){
-		print ("ClickToStart()");
 		StartCoroutine(BounceTo (new Vector2(scorePanel.transform.position.x, -8.25f), signAnimationTime));
 	}
 	
