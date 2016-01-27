@@ -7,10 +7,6 @@
 * Save time of final run for tutorial as last time
 * Add sounds on button presses
 * spawn sounds?
-* Make animation for credits flip out panel
-* Make credits still
-* Make credits animate back
-* Trigger credits panel from button
 * Better jump sound
 * Better wipeout pickup sound
 * Better wipeout usage sound
@@ -20,3 +16,9 @@
 * Better death indications: sound, on-screen graphics over frozen screen, something
 * After Each minute (?) of surviving increase the average speed of th enemies. Use a sprite with a green glow for the faster ones
 * Play applause sound on returning to start screen if score was a high score
+* why aren't score splashes being destroyed?
+
+
+
+smoke puff attribution credit
+http://powstudios.com/content/smoke-animation-pack-1
