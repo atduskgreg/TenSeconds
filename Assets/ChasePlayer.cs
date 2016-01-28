@@ -8,10 +8,7 @@ public class ChasePlayer : MonoBehaviour {
 	public float timeToMaxSpeed = 4.0f;
 	KeepScore score;
 	BonusLifecycle bonusLifecycle;
-
-
-
-
+	
 	void Start () {
 		player = GameObject.Find("player");
 		bonusLifecycle = GameObject.Find("ObstacleManager").GetComponent<BonusLifecycle>();
