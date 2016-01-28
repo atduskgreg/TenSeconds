@@ -44,6 +44,7 @@ public class KeepScore : MonoBehaviour {
 		} else {
 			timeUp = true;
 			EndGame();
+
 			if(timerWidget.GetComponent<Bounce>().isComplete()){
 //				scorePanel.GetComponent<Bounce>().DoBounce ();
 //				if(scorePanel.GetComponent<Bounce>().isComplete ()){

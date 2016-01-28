@@ -20,6 +20,8 @@ public class Bounce : MonoBehaviour {
 			GetComponent<AudioSource>().clip = movementSounds[Random.Range (0, movementSounds.Length)];
 			GetComponent<AudioSource>().Play ();
 		}
+//		complete = false;
+
 		StartCoroutine(BounceTo(finalPos, riseTime));
 	}
 
@@ -33,7 +35,6 @@ public class Bounce : MonoBehaviour {
 
 	public IEnumerator BounceTo(Vector2 targetPos, float time){
 		Vector2 startPos = transform.position;
-		complete = false;
 		for (float t = 0.0f; t < time; t += Time.deltaTime ){
 			float y;
 			if(easeIn){

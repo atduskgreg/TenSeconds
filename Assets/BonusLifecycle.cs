@@ -120,7 +120,6 @@ public class BonusLifecycle : MonoBehaviour {
 
 	public void CollectBonus(GameObject collectedBonus){
 
-		print ("got bonus");
 		progressBar.GetComponent<KeepScore>().totalTime += timeBonus;
 
 		AudioSource audioSource = collectedBonus.GetComponent<AudioSource>();
@@ -143,13 +142,10 @@ public class BonusLifecycle : MonoBehaviour {
 		Destroy (collectedBonus, audioSource.clip.length);
 
 
-		print ("count: " + currentBonuses.Count);
 		if(currentBonuses.Count == 0){
 
 
 			int numBonusesToSpwan = (int)Mathf.Round (Mathf.Clamp((timeToMinBonuses - Time.timeSinceLevelLoad).Remap(0, timeToMinBonuses, 1, numStartingBonuses), 1, numStartingBonuses));
-
-			print ("numBonusesToSpwan: " + numBonusesToSpwan);
 
 			for(int i = 0; i < numBonusesToSpwan; i++){
 				PlaceBonus();

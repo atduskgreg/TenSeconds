@@ -23,7 +23,6 @@ public class SpawnAnimation : MonoBehaviour {
 	}
 
 	public void StartGrow(){
-		print ("StartGrow()");
 		StartCoroutine(GrowTo(time));
 	}
 

@@ -19,7 +19,6 @@ public class PlayGeigerSounds : MonoBehaviour {
 	}
 
 	public void Mute(){
-		print ("Mute()");
 		audioSource.volume = 0;
 	}
 	
