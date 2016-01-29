@@ -16,6 +16,7 @@ public class ScrollText : MonoBehaviour {
 	}
 
 	public void StartScrolling(){
+		GetComponent<AudioSource>().Play();
 		charOffset = 0;
 		originalTexts = new string[targets.Length]; 
 		for(int i = 0; i < targets.Length; i++){

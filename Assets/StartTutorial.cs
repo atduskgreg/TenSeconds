@@ -11,6 +11,7 @@ public class StartTutorial : MonoBehaviour {
 	}
 
 	public void GoToTutorial(){
+		GetComponent<AudioSource>().Play ();
 		Camera.main.GetComponent<ShowPlayer>().shouldShowPlayer = false;
 		StartCoroutine(BounceTo (new Vector2(scorePanel.transform.position.x, -8.25f), signAnimationTime));
 	}

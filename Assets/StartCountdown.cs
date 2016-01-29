@@ -47,7 +47,6 @@ public class StartCountdown : MonoBehaviour {
 		// wait 
 		yield return new WaitForSeconds(timePerStep);
 
-		print ("currStep : " + currStep + " totalFrames: " + totalFrames);
 
 		if(currStep < totalFrames-1){
 			StartCoroutine(DoCountdownStep(currStep+1));
