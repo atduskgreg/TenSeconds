@@ -72,7 +72,6 @@ public class BonusLifecycle : MonoBehaviour {
 
 
 		prevTimeUp = score.timeUp;
-
 		if(Input.GetKeyDown(KeyCode.Space) && !score.timeUp){
 			if(numWipeouts > 0 && currentTraps.Count > 0){
 				ApplyWipeout();
@@ -250,8 +249,8 @@ public class BonusLifecycle : MonoBehaviour {
 
 	// this is here for the tutorial
 	public void AddTrap(GameObject trap){
-		int numIntervals =  (int)Mathf.Floor(score.Score () / enemySpeedIncreaseInterval);
-		trap.GetComponent<ChasePlayer>().SetSpeedLevel(numIntervals);
+//		int numIntervals =  (int)Mathf.Floor(score.Score () / enemySpeedIncreaseInterval);
+//		trap.GetComponent<ChasePlayer>().SetSpeedLevel(numIntervals);
 		currentTraps.Add(trap);
 	}
 

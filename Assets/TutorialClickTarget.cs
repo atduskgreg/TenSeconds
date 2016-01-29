@@ -67,6 +67,8 @@ public class TutorialClickTarget : MonoBehaviour {
 		}
 
 		if(isStartClockTarget){
+			bl.numWipeouts = 2;
+			GameObject.Find("WipeoutDisplay").GetComponent<UpdateWipeoutDisplay>().Refresh();
 			bl.PlaceBonus();
 		}
 	}

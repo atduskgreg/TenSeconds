@@ -14,6 +14,10 @@ public class ChasePlayerTutorial : MonoBehaviour {
 
 	void Start () {
 		player = GameObject.Find("player");
+		foreach(Transform child in transform){
+			Destroy (child.gameObject);
+		}
+
 //		bonusLifecycle = GameObject.Find("ObstacleManager").GetComponent<BonusLifecycle>();
 //		score = (KeepScore)GameObject.Find("progress_bar").GetComponent(typeof(KeepScore));
 		
