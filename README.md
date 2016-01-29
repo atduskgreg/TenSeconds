@@ -14,10 +14,8 @@
 * Animate arrow shape when jumping
 * Add music
 * Better death indications: sound, on-screen graphics over frozen screen, something
-* Use a sprite with a green glow for the faster ones
 * Play applause sound on returning to start screen if score was a high score
-
-
+* Clear blinking high score light after it was immediately seen
 
 smoke puff attribution credit
 http://powstudios.com/content/smoke-animation-pack-1
