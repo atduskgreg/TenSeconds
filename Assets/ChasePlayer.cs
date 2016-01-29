@@ -8,6 +8,8 @@ public class ChasePlayer : MonoBehaviour {
 	public float timeToMaxSpeed = 4.0f;
 
 	public float speedUpPerLevel = 0.05f; 
+	public GameObject glow;
+	public Sprite upgradedGlow;
 
 	int speedLevel = 0;
 
@@ -25,6 +27,15 @@ public class ChasePlayer : MonoBehaviour {
 
 	public void SetSpeedLevel(int l){
 		speedLevel = l;
+		print ("speedLevel: " + speedLevel);
+		if(speedLevel < 1){
+			glow.SetActive (false);
+		} else {
+			if(speedLevel > 2){
+				glow.GetComponent<SpriteRenderer>().sprite = upgradedGlow;
+			}
+			glow.SetActive(true);
+		}
 	}
 	
 	void Update () {

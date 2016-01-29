@@ -27,9 +27,13 @@ public class GetHit : MonoBehaviour {
 			} 
 
 			if(isTrap){
+				foreach(Transform child in transform){
+					Destroy (child.gameObject);
+				}
 				bl.ApplyPenalty(gameObject);
+
 				GetComponent<Shatter>().StartShatter(collision.gameObject.GetComponent<PushAndPull>().currentVelocity);
-				GetComponent<PlayGeigerSounds>().Mute ();
+				GetComponent<PlayGeigerSounds>().Mute();
 				return;
 			}
 

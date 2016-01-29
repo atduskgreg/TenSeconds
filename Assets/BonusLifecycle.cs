@@ -189,6 +189,9 @@ public class BonusLifecycle : MonoBehaviour {
 				GameObject trap = (GameObject)currentTraps[i];
 				trap.GetComponent<Renderer>().enabled = false;
 				trap.GetComponent<Collider2D>().enabled = false;
+				foreach(Transform child in trap.transform){
+					Destroy (child.gameObject);
+				}
 
 
 				// play kill bonus animation
@@ -247,6 +250,8 @@ public class BonusLifecycle : MonoBehaviour {
 
 	// this is here for the tutorial
 	public void AddTrap(GameObject trap){
+		int numIntervals =  (int)Mathf.Floor(score.Score () / enemySpeedIncreaseInterval);
+		trap.GetComponent<ChasePlayer>().SetSpeedLevel(numIntervals);
 		currentTraps.Add(trap);
 	}
 
