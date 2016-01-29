@@ -11,7 +11,6 @@ public class PlayGeigerSounds : MonoBehaviour {
 	void Start () {
 		score = (KeepScore)GameObject.Find("progress_bar").GetComponent(typeof(KeepScore));
 
-		audioSource.volume = 1;
 		audioSource.clip = geigerSounds[Random.Range(0, geigerSounds.Length)];
 		audioSource.Play();
 

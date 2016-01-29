@@ -10,6 +10,9 @@ public class PushAndPull : MonoBehaviour {
 
 	public Vector2 currentVelocity;
 
+	public AudioClip[] sounds;
+
+
 	KeepScore score;
 
 	// Use this for initialization
@@ -30,7 +33,6 @@ public class PushAndPull : MonoBehaviour {
 		Vector3 pushDir;
 		if(Input.GetMouseButtonDown(0) && score.GameOn()){
 
-
 			pushDir = Camera.main.WorldToScreenPoint(transform.position) - Input.mousePosition;
 			
 			pushDir *= pushPercent;
@@ -46,7 +48,9 @@ public class PushAndPull : MonoBehaviour {
 
 
 			AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+			audioSource.clip = sounds[Random.Range(0, sounds.Length)];
 			audioSource.Play();
+
 			arrow.transform.GetComponentInParent<ColorAndScale>().Bump ();
 		}
 	}

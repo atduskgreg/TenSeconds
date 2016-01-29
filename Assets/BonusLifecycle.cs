@@ -25,6 +25,7 @@ public class BonusLifecycle : MonoBehaviour {
 	public AudioClip[] bonusCollectSounds;
 	public AudioClip[] superWipeoutSounds;
 	public AudioClip[] enemyExplodeSounds;
+	public AudioClip[] wipeoutCollectSounds;
 
 	public int numTrapsForSuperSound = 5;
 	public float spawningEdgeBuffer = 40.0f;
@@ -85,6 +86,7 @@ public class BonusLifecycle : MonoBehaviour {
 	}
 	public void CollectWipeoutBonus(GameObject collectedBonus){
 		AudioSource audioSource = collectedBonus.GetComponent<AudioSource>();
+		audioSource.clip = wipeoutCollectSounds[Random.Range (0,wipeoutCollectSounds.Length)];
 		audioSource.Play();
 		
 		// since destroy has to wait for audio clip to finish
