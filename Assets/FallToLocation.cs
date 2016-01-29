@@ -35,10 +35,15 @@ public class FallToLocation : MonoBehaviour {
 
 	IEnumerator WaitAndDie(float time){
 		yield return new WaitForSeconds(time);
-		Destroy (gameObject);
-		
-		Destroy (gameObject.transform.parent.gameObject);
 
+		if(gameObject.transform.parent){
+			Destroy(gameObject.transform.parent.gameObject);
+		} else {
+			Destroy (gameObject);
+		}
+
+//		Destroy (gameObject);
+//		Destroy (p);
 	}
 
 	IEnumerator Fall(Vector2 target, float aTime){

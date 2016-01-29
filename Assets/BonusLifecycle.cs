@@ -17,6 +17,8 @@ public class BonusLifecycle : MonoBehaviour {
 	public int numWipeouts = 2;
 	public float chanceOfWipeoutBonus = 0.15f;
 
+	public float enemySpeedIncreaseInterval = 60.0f;
+
 	public int numStartingBonuses = 3;
 	public float timeToMinBonuses = 60.0f;
 
@@ -25,11 +27,11 @@ public class BonusLifecycle : MonoBehaviour {
 	public AudioClip[] enemyExplodeSounds;
 
 	public int numTrapsForSuperSound = 5;
-	public float spawningEdgeBuffer = 30.0f;
+	public float spawningEdgeBuffer = 40.0f;
+	public int bottomY = 25;
 
 	public AudioSource secondAudioSource;
 
-	public int bottomY = 25;
 
 //	int numWipeouts = 2;
 	bool prevTimeUp = false;
@@ -237,6 +239,8 @@ public class BonusLifecycle : MonoBehaviour {
 		Transform bt = (Transform)Instantiate(trap, RandomOnScreenPoint(), Quaternion.identity);
 		bt.position = new Vector3(bt.position.x, bt.position.y, 0);
 
+		int numIntervals =  (int)Mathf.Floor(score.Score () / enemySpeedIncreaseInterval);
+		bt.gameObject.GetComponent<ChasePlayer>().SetSpeedLevel(numIntervals);
 
 		currentTraps.Add (bt.gameObject);
 	}

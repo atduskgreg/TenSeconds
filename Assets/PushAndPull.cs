@@ -6,7 +6,6 @@ public class PushAndPull : MonoBehaviour {
 	public float pushPercent = 5;
 	public GameObject arrow;
 
-	public Animation animation;
 	public Animator animator;
 
 	public Vector2 currentVelocity;
@@ -31,7 +30,6 @@ public class PushAndPull : MonoBehaviour {
 		Vector3 pushDir;
 		if(Input.GetMouseButtonDown(0) && score.GameOn()){
 
-//			animation.Play();
 
 			pushDir = Camera.main.WorldToScreenPoint(transform.position) - Input.mousePosition;
 			
@@ -44,7 +42,6 @@ public class PushAndPull : MonoBehaviour {
 //				pushDir *= -1;
 //			}
 			GetComponent<Rigidbody2D>().AddForce(pushDir);
-//			animator.SetTrigger(Animator.StringToHash("Bump"));
 			animator.Play("ArrowGradientAnimation", 0, 0);
 
 
