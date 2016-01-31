@@ -23,6 +23,7 @@ public class SpawnAnimation : MonoBehaviour {
 	}
 
 	public void StartGrow(){
+		GetComponent<SpawnSound>().Play();
 		StartCoroutine(GrowTo(time));
 	}
 

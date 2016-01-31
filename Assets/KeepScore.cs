@@ -80,6 +80,7 @@ public class KeepScore : MonoBehaviour {
 		float oldHighscore = PlayerPrefs.GetFloat("highscore", 0.0f); 
 		if(Score() > oldHighscore){
 			PlayerPrefs.SetFloat("highscore", Score());
+			PlayerPrefs.SetInt("newHighScore", 1);
 		}
 
 		PlayerPrefs.SetFloat("lastScore", Score());

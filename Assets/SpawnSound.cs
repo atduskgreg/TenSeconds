@@ -6,6 +6,13 @@ public class SpawnSound : MonoBehaviour {
 	public AudioClip[] clips;
 
 	void Start(){
+//		int i = Random.Range (0,clips.Length);
+//		print ("playng spawn sound " + i) ;
+//		source.clip = clips[i];
+//		source.Play();
+	}
+
+	public void Play(){
 		int i = Random.Range (0,clips.Length);
 		print ("playng spawn sound " + i) ;
 		source.clip = clips[i];

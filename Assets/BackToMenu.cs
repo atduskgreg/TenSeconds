@@ -11,6 +11,7 @@ public class BackToMenu : MonoBehaviour {
 	}
 
 	public void GoBackToMenu(){
+		GetComponent<AudioSource>().Play();
 		exitRequested = true;
 		GameObject.Find ("player").GetComponent<Rigidbody2D>().isKinematic = true;
 		StartCoroutine(timerWidget.GetComponent<Bounce>().BounceTo(new Vector2(0, -6.6f), 0.5f));

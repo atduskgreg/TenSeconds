@@ -8,6 +8,7 @@ public class ShowHighScore : MonoBehaviour {
 	public Text lastScoreDisplay;
 
 	public GameObject highScoreIndicator;
+	public AudioClip[] celebrationSounds;
 
 	void Start () {
 		UpdateScores();
@@ -21,12 +22,19 @@ public class ShowHighScore : MonoBehaviour {
 		lastScoreDisplay.text = ((int)lastscore).ToString("F2").Replace('.', ':');
 
 
-		if(highscore.Equals(lastscore)){
+				
+		if(Application.loadedLevelName == "StartScreen" && PlayerPrefs.GetInt("newHighScore") == 1){
 			highScoreIndicator.GetComponent<Animator>().speed = 1;
 			highScoreIndicator.GetComponent<Animator>().Play("IndicatorLight", 0 , 0);
+			GetComponent<AudioSource>().clip = celebrationSounds[Random.Range (0,celebrationSounds.Length)];
+			GetComponent<AudioSource>().Play();
+			PlayerPrefs.SetInt("newHighScore", 0);
 		} else {
+
 			highScoreIndicator.GetComponent<Animator>().speed = 0;
 			highScoreIndicator.GetComponent<Animator>().Play("IndicatorLight", 0 , 0);
+			
+
 		}
 	}
 	
