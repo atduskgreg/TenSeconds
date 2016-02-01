@@ -9,11 +9,15 @@ public class KeepScore : MonoBehaviour {
 	public float startingTotal = 10.0f;
 	public float totalTime;
 
+	public AudioClip[] countdown;
+
 	Vector3 startingScale;
 	float startTime;	
 	private float score = 0.0f;
 	private GameObject scorePanel;
 	private GameObject timerWidget;
+
+	float prevTime = 10.0f;
 
 	void Start () {
 		rd = gameObject.GetComponent<SpriteRenderer>();
@@ -36,6 +40,26 @@ public class KeepScore : MonoBehaviour {
 
 			float t = (RemainingTime())/startingTotal;
 
+			if(GetComponent<AudioSource>() && !GetComponent<AudioSource>().isPlaying){
+				if(prevTime > 3.0 && RemainingTime() <= 3.0){
+					GetComponent<AudioSource>().clip = countdown[2];
+					GetComponent<AudioSource>().Play();
+				}
+
+				if(prevTime > 2.0 && RemainingTime() <= 2.0){
+					GetComponent<AudioSource>().clip = countdown[1];
+					GetComponent<AudioSource>().Play();
+				}
+
+				if(prevTime > 1.0 && RemainingTime() <= 1.0){
+					print ("should fire");
+					GetComponent<AudioSource>().clip = countdown[0];
+					GetComponent<AudioSource>().Play();
+				}
+			}
+
+			prevTime = RemainingTime();
+
 			float g = t;
 
 			float r = 1-t;
@@ -46,13 +70,9 @@ public class KeepScore : MonoBehaviour {
 			EndGame();
 
 			if(timerWidget.GetComponent<Bounce>().isComplete()){
-//				scorePanel.GetComponent<Bounce>().DoBounce ();
-//				if(scorePanel.GetComponent<Bounce>().isComplete ()){
-					Application.LoadLevel("StartScreen");
-//				}
+				Application.LoadLevel("StartScreen");
 			}
 		}
-//		transform.position = new Vector3(transform.position.x, transform.position.y, 10);
 	}
 	
 	public bool GameOn(){
