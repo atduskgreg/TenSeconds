@@ -7,7 +7,7 @@
 * Animate arrow shape when jumping
 * Better death indications: sound, on-screen graphics over frozen screen, something
 * Implement ducking for music (?)
-* add controls for turning music and sfx off
+* Enforce music and sfx controls
 
 smoke puff attribution credit
 http://powstudios.com/content/smoke-animation-pack-1
