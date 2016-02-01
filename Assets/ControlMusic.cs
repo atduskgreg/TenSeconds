@@ -12,6 +12,8 @@ public class ControlMusic : MonoBehaviour {
 
 	public float drumVolume = 0.7f;
 
+	public bool playOnStart = true;
+
 	int currentDrumLoop = 0;
 	int currentAlarm = -1;
 
@@ -32,15 +34,19 @@ public class ControlMusic : MonoBehaviour {
 
 		startingAlarmVolume = alarmSource.volume;
 		nextClipTime = AudioSettings.dspTime + 1.1f;
+
+		running = playOnStart;
+	}
+
+	public void StopMusic(){
+		running = false;
+	}
+
+	public void StartMusic(){
 		running = true;
 	}
 	
 	void Update () {
-//		int i = 0;
-//		while (i < 2) {
-//			audioSources[i].volume = drumVolume;
-//			i++;
-//		}
 
 		if(Input.GetKeyDown("=")){
 			incrementAlarm();
@@ -68,7 +74,6 @@ public class ControlMusic : MonoBehaviour {
 
 			if(currentAlarm == -1){
 				alarmSource.volume = 0;
-//				alarmSource.PlayScheduled(nextClipTime);
 
 			} else{
 				alarmSource.volume = startingAlarmVolume;

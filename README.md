@@ -6,7 +6,6 @@
 * Save time of final run for tutorial as last time
 * Animate arrow shape when jumping
 * Better death indications: sound, on-screen graphics over frozen screen, something
-* Add sound when player collides with ground 
 * Implement ducking for music (?)
 * add controls for turning music and sfx off
 
