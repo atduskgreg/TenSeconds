@@ -247,6 +247,19 @@ public class BonusLifecycle : MonoBehaviour {
 		bt.gameObject.GetComponent<ChasePlayer>().SetSpeedLevel(numIntervals);
 
 		currentTraps.Add (bt.gameObject);
+
+		int alarmLevel = -1;
+		if(currentTraps.Count > 0){
+			alarmLevel = 0;
+		}
+		if(currentTraps.Count > 2){
+			alarmLevel = 1;
+		}
+		if(currentTraps.Count > 4){
+			alarmLevel = 2;
+		}
+
+		GameObject.Find ("MusicManager").GetComponent<ControlMusic>().SetAlarm(alarmLevel);
 	}
 
 	// this is here for the tutorial

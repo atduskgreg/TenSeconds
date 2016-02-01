@@ -8,30 +8,39 @@ public class ControlMusic : MonoBehaviour {
 	public AudioClip[] drumLoops;
 	public AudioClip[] alarms;
 
-	public AudioSource drumSource;
 	public AudioSource alarmSource;
 
+	public float drumVolume = 0.7f;
+
 	int currentDrumLoop = 0;
-	int currentAlarm = 0;
+	int currentAlarm = -1;
 
 	private double nextClipTime = 0.0;
 	private bool running = false;
 
 	private AudioSource[] audioSources = new AudioSource[2];
 	private int flip = 0;
+	float startingAlarmVolume;
 
 	void Start () {
 		int i = 0;
 		while (i < 2) {
 			audioSources[i] = gameObject.AddComponent<AudioSource>();
+			audioSources[i].volume = drumVolume;
 			i++;
 		}
 
-		nextClipTime = AudioSettings.dspTime + 2.0f;
+		startingAlarmVolume = alarmSource.volume;
+		nextClipTime = AudioSettings.dspTime + 1.1f;
 		running = true;
 	}
 	
 	void Update () {
+//		int i = 0;
+//		while (i < 2) {
+//			audioSources[i].volume = drumVolume;
+//			i++;
+//		}
 
 		if(Input.GetKeyDown("=")){
 			incrementAlarm();
@@ -52,28 +61,33 @@ public class ControlMusic : MonoBehaviour {
 			if(currentDrumLoop > drumLoops.Length-1){
 				currentDrumLoop = 0;
 			}
-		
+
+	
 			audioSources[flip].clip = drumLoops[currentDrumLoop];
 			audioSources[flip].PlayScheduled(nextClipTime);
-			alarmSource.clip = alarms[currentAlarm];
-			alarmSource.PlayScheduled(nextClipTime);
+
+			if(currentAlarm == -1){
+				alarmSource.volume = 0;
+//				alarmSource.PlayScheduled(nextClipTime);
+
+			} else{
+				alarmSource.volume = startingAlarmVolume;
+
+				alarmSource.clip = alarms[currentAlarm];
+				alarmSource.PlayScheduled(nextClipTime);
+			}
+
+
 			nextClipTime += 60.0F / bpm * numBeatsPerSegment;
 			flip = 1 - flip;
 		}
-
-
-//			alarmSource.clip = alarms[currentAlarm];
-//			alarmSource.Play ();
-//			
-
-
-//		if(!alarmSource.isPlaying){
-//			alarmSource.clip = alarms[currentAlarm];
-//			alarmSource.Play ();
-//		}
 	}
 
-	void incrementAlarm(){
+	public void SetAlarm(int a){
+		currentAlarm = a;
+	}
+
+	public void incrementAlarm(){
 		currentAlarm++;
 		if(currentAlarm >= alarms.Length){
 			currentAlarm = alarms.Length-1;
@@ -81,11 +95,10 @@ public class ControlMusic : MonoBehaviour {
 
 	}
 
-	void decrementAlarm(){
+	public void decrementAlarm(){
 		currentAlarm--;
-		if(currentAlarm <= 0){
-			currentAlarm = 0;
+		if(currentAlarm <= -1){
+			currentAlarm = -1;
 		}
-
 	}
 }
