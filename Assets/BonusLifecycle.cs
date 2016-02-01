@@ -205,6 +205,7 @@ public class BonusLifecycle : MonoBehaviour {
 			}
 	
 			Camera.main.GetComponent<Shake>().ApplyShake(1.0f * numTrapsDestroyed);
+		UpdateMusicIntensity();
 	}
 
 	public void ApplyPenalty(GameObject trapTriggered){
@@ -227,6 +228,8 @@ public class BonusLifecycle : MonoBehaviour {
 		currentTraps.Remove (trapTriggered);
 		Destroy (trapTriggered, audioSource.clip.length);
 
+		UpdateMusicIntensity();
+
 	}
 
 	Vector3 RandomOnScreenPoint(){
@@ -248,6 +251,11 @@ public class BonusLifecycle : MonoBehaviour {
 
 		currentTraps.Add (bt.gameObject);
 
+		UpdateMusicIntensity();
+
+	}
+
+	void UpdateMusicIntensity(){
 		int alarmLevel = -1;
 		if(currentTraps.Count > 0){
 			alarmLevel = 0;
@@ -258,7 +266,7 @@ public class BonusLifecycle : MonoBehaviour {
 		if(currentTraps.Count > 4){
 			alarmLevel = 2;
 		}
-
+		
 		GameObject.Find ("MusicManager").GetComponent<ControlMusic>().SetAlarm(alarmLevel);
 	}
 
