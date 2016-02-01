@@ -173,7 +173,7 @@ public class BonusLifecycle : MonoBehaviour {
 	}
 
 	public void ApplyWipeout(){
-
+		GameObject.Find ("Background").GetComponent<DimColor>().StartDim();
 		bonusWipeout.SetTrigger(Animator.StringToHash("Go"));
 		AudioSource audioSource = ((GameObject)currentTraps[0]).GetComponent<AudioSource>();
 		audioSource.Play();
