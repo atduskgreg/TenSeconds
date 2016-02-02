@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class ToggleImage : MonoBehaviour {
 
@@ -23,7 +24,10 @@ public class ToggleImage : MonoBehaviour {
 			PlayerPrefs.SetInt(settingName, 1);
 		} else {
 			PlayerPrefs.SetInt(settingName, 0);
-
 		}
+
+		GameObject.Find("MusicManager").GetComponent<EnforceAudioPrefs>().Enforce();
 	}
+
+
 }

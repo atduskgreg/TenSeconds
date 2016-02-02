@@ -25,9 +25,11 @@ public class ControlMusic : MonoBehaviour {
 	float startingAlarmVolume;
 
 	void Start () {
+		print ("audioMixerGroup: " + alarmSource.outputAudioMixerGroup);
 		int i = 0;
 		while (i < 2) {
 			audioSources[i] = gameObject.AddComponent<AudioSource>();
+			audioSources[i].outputAudioMixerGroup =  alarmSource.outputAudioMixerGroup;
 			audioSources[i].volume = drumVolume;
 			i++;
 		}

@@ -7,7 +7,9 @@ public class ClinkOnBounce : MonoBehaviour {
 	AudioSource clinkSource;
 	// Use this for initialization
 	void Start () {
+		AudioSource existingAudioSource = GetComponent<AudioSource>();
 		clinkSource = gameObject.AddComponent<AudioSource>();
+		clinkSource.outputAudioMixerGroup = existingAudioSource.outputAudioMixerGroup;
 	}
 	
 	// Update is called once per frame
