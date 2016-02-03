@@ -3,7 +3,6 @@
 ### TODO
 
 * Add button pressed state
-* Save time of final run for tutorial as last time
 * Animate arrow shape when jumping
 * Better death indications: sound, on-screen graphics over frozen screen, something
 * Implement ducking for music (?)

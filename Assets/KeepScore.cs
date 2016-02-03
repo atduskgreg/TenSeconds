@@ -111,11 +111,11 @@ public class KeepScore : MonoBehaviour {
 	void EndGame(){
 		GameObject.Find ("player").GetComponent<Rigidbody2D>().isKinematic = true;
 
-		if(Application.loadedLevelName != "Tutorial1"){
-			StoreHighscore();
+//		if(Application.loadedLevelName == "Tutorial1"){
+//		}
+		StoreHighscore();
+		GameObject.Find ("ScoreCanvas").GetComponent<ShowHighScore>().UpdateScores();
 
-			GameObject.Find ("ScoreCanvas").GetComponent<ShowHighScore>().UpdateScores();
-		}
 	
 		timerWidget.GetComponent<Bounce>().DoBounce();
 
