@@ -150,6 +150,12 @@ public class BonusLifecycle : MonoBehaviour {
 
 			int numBonusesToSpwan = (int)Mathf.Round (Mathf.Clamp((timeToMinBonuses - Time.timeSinceLevelLoad).Remap(0, timeToMinBonuses, 1, numStartingBonuses), 1, numStartingBonuses));
 
+			// spawn at least 1 bonus
+			// in tutorial we set numStartingBonuses to 0
+			if(numBonusesToSpwan == 0){
+				numBonusesToSpwan = 1;
+			}
+
 			for(int i = 0; i < numBonusesToSpwan; i++){
 				PlaceBonus();
 			}
