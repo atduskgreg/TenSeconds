@@ -241,7 +241,7 @@ public class BonusLifecycle : MonoBehaviour {
 
 	Vector3 RandomOnScreenPoint(){
 
-		float x = Random.Range(0, Camera.main.pixelWidth - spawningEdgeBuffer);
+		float x = Random.Range(spawningEdgeBuffer, Camera.main.pixelWidth - spawningEdgeBuffer);
 		float y = Random.Range(bottomY, Camera.main.pixelHeight - spawningEdgeBuffer);
 
 		return Camera.main.ScreenToWorldPoint(new Vector3(x,y, 0));
