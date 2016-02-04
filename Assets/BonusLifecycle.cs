@@ -161,7 +161,8 @@ public class BonusLifecycle : MonoBehaviour {
 			}
 		}
 
-		if(Random.Range(0, 1.0f) < chanceOfWipeoutBonus){
+		float c = Random.Range(0, 1.0f);
+		if(c < chanceOfWipeoutBonus){
 			PlaceWipeoutBonus();
 		}
 

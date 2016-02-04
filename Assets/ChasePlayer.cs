@@ -27,7 +27,6 @@ public class ChasePlayer : MonoBehaviour {
 
 	public void SetSpeedLevel(int l){
 		speedLevel = l;
-		print ("speedLevel: " + speedLevel);
 		if(speedLevel < 1){
 			glow.SetActive (false);
 		} else {
