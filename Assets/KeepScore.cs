@@ -10,6 +10,7 @@ public class KeepScore : MonoBehaviour {
 	public float totalTime;
 
 	public AudioClip[] countdown;
+	public AudioClip failureSound;
 
 	Vector3 startingScale;
 	float startTime;	
@@ -116,7 +117,20 @@ public class KeepScore : MonoBehaviour {
 		StoreHighscore();
 		GameObject.Find ("ScoreCanvas").GetComponent<ShowHighScore>().UpdateScores();
 
-	
+		GameObject.Find("MusicManager").GetComponent<ControlMusic>().StopMusic();
+		float volumeBefore = GetComponent<AudioSource>().volume;
+		float pitchBefore = GetComponent<AudioSource>().pitch;
+
+		GetComponent<AudioSource>().volume = 0.7f;
+		GetComponent<AudioSource>().pitch = 2.5f;
+
+		GetComponent<AudioSource>().clip = failureSound;
+		GetComponent<AudioSource>().Play ();
+
+//		GetComponent<AudioSource>().volume = volumeBefore;
+//		GetComponent<AudioSource>().pitch = pitchBefore;
+//
+//	
 		timerWidget.GetComponent<Bounce>().DoBounce();
 
 	

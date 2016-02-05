@@ -41,6 +41,13 @@ public class ControlMusic : MonoBehaviour {
 	}
 
 	public void StopMusic(){
+		int i = 0;
+		while (i < 2) {
+			audioSources[i].volume = 0;
+			i++;
+		}
+		alarmSource.volume = 0;
+
 		running = false;
 	}
 
