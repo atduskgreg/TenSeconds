@@ -43,7 +43,7 @@ public class Bounce : MonoBehaviour {
 				y = (float)Easing.ElasticEaseOut(t, startPos.y, targetPos.y - startPos.y, time);
 			}
 			 
-			transform.position = new Vector2(transform.position.x, y);
+			transform.position = new Vector3(transform.position.x, y,transform.position.z);
 			yield return null;
 		}
 		complete = true;
