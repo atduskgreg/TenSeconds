@@ -34,7 +34,6 @@ public class TutorialClickTarget : MonoBehaviour {
 		}
 		if(ObjectsToAdd.Length > 0){
 			for(int i = 0; i< ObjectsToAdd.Length; i++){
-				print (ObjectsToAdd[i]);
 				ObjectsToAdd[i].SetActive(false);
 			}
 		}
